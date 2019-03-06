@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  pgadmin:
+    image: "dpage/pgadmin4"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=linh.nguyen@ttekglobal.com
+      - PGADMIN_DEFAULT_PASSWORD=nguyenvinhlinh
+      - PGADMIN_ENABLE_TLS=true
+      - PGADMIN_LISTEN_PORT=443
+    volumes:
+      - "/home/nguyenvinhlinh/Software/pgadmin4/cert/pgadmin.crt:/certs/server.cert"
+      - "/home/nguyenvinhlinh/Software/pgadmin4/cert/pg-admin-decrypted.key:/certs/server.key"
+    ports:
+      - target: 443
+        published: 4443
+        protocol: tcp
+        mode: host
